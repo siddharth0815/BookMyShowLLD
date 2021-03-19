@@ -1,4 +1,4 @@
-## BookMyShow Low-Level-Design
+# BookMyShow Low-Level-Design
 
 This is low-level-design of popular application BookMyShow without actual implementation of API's.
 
