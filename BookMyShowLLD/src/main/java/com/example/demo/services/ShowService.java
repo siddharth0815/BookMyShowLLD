@@ -32,7 +32,6 @@ public class ShowService {
             show.setMovie(movie.get());
 
              showRepository.save(show);
-             int c=1;
              return null;
         }
         return null;
