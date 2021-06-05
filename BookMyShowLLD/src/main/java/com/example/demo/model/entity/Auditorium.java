@@ -1,26 +1,29 @@
 package com.example.demo.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@Data
 public class Auditorium {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long audiId;
+    private Long id;
     @ManyToOne(fetch=FetchType.LAZY, optional = false)
-    @JoinColumn(name = "theatre_id", nullable = false)
+    @JoinColumn(name = "theatre_id")
     private Theatre theatre;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "show_id", nullable = false)
-    private Show show;
-    @OneToMany(mappedBy="auditorium", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Seat> seats;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "auditorium")
+    private List<Show> shows;
     private String audiName;
-    int totalSeats;
+    private int totalSeats;
 
 
 

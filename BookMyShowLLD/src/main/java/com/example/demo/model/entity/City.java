@@ -12,13 +12,13 @@ import java.util.List;
 @Getter
 @Setter
 @Data
-public class TheatreOwner extends User{
+public class City {
 
-    @OneToMany(mappedBy = "theatreOwner", cascade = CascadeType.ALL)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String cityName;
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Theatre> theatres;
-
-
-
-
 }
